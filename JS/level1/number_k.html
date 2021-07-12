@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>K번째 수</h1>
+    <h2>문제 풀이 방법</h2>
+    <ol>
+      <li>배열의 값을 문제에서 지정해준 범위까지 자릅니다.</li>
+      <li>자른 배열을 정렬해줍니다.</li>
+      <li>정렬된 배열에서 원하는 수만 골라 정답 배열에 푸시합니다.</li>
+    </ol>
+    <h2>코드</h2>
+    <pre>
+        <code>
+            function solution(array, commands) {
+                var answer = [];
+                var copyArray = [];
+                
+                for(var i = 0; i < commands.length; i++) {
+                    copyArray = array.slice();
+                    sliceArray(copyArray, commands, i);
+                    sortArray(copyArray);
+                    pushArray(copyArray, commands, i, answer);
+                }
+                
+                return answer;
+            }
+            
+            function sliceArray(array, commands, i) {
+                var length = array.length;
+                for(var j = commands[i][1]; j < length; j++) {
+                    array.pop();
+                    console.log(`pop : ${array}`);
+                }
+                for(var j = 0; j < commands[i][0] - 1; j++) {
+                    array.shift();
+                    console.log(`shift : ${array}`);
+                }
+            }
+            
+            function sortArray(array) {
+                array.sort((a, b) => a - b);
+                console.log(`sort : ${array}`);
+            }
+            
+            function pushArray(array, commands, i, answer) {
+                answer.push(array[commands[i][2] - 1]);
+                console.log(`push - answer : ${answer}`)
+            }
+        </code>
+    </pre>
+  </body>
+</html>
