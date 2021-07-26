@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function solution(string) {
+        let answer = "";
+
+        string = string.split("");
+        let arr = string.length;
+        let index = Math.floor(arr / 2);
+
+        if (arr % 2 === 0) {
+          answer += string[index - 1];
+          answer += string[index];
+        } else if (arr % 2 === 1) {
+          answer += string[index];
+        }
+
+        return answer;
+      }
+
+      let string = "study";
+      console.log(solution(string));
+    </script>
+  </body>
+</html>
