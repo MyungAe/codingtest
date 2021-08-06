@@ -8,14 +8,16 @@
   </head>
   <body>
     <script>
-      function solution(string) {
-        let answer = "";
+      function solution(s) {
+        let answer = s.filter(function (v, i) {
+          if (s.indexOf(v) === i) return true;
+        });
 
         return answer;
       }
 
-      let string = ksekkset;
-      console.log(solution(string));
+      let str = ["good", "time", "good", "time", "student"];
+      console.log(solution(str));
     </script>
   </body>
 </html>

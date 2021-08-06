@@ -8,24 +8,17 @@
   </head>
   <body>
     <script>
-      function solution(string) {
+      function solution(s) {
         let answer = "";
 
-        string = string.split("");
-        let arr = string.length;
-        let index = Math.floor(arr / 2);
-
-        if (arr % 2 === 0) {
-          answer += string[index - 1];
-          answer += string[index];
-        } else if (arr % 2 === 1) {
-          answer += string[index];
+        for (let i = 0; i < s.length; i++) {
+          if (s.indexOf(s[i]) === i) answer += s[i];
         }
 
         return answer;
       }
 
-      let string = "study";
+      let string = "ksekkset";
       console.log(solution(string));
     </script>
   </body>
