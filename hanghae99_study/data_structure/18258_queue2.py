@@ -24,14 +24,14 @@ def solution():
     # step 2. write methods
     def push(num):
         nonlocal queue, queue_size
-        >> queue = [num] + queue
+        queue = [num] + queue
         queue_size += 1
 
     def pop():
         nonlocal queue, queue_size
         if queue_size:
             front_element = queue[queue_size - 1]
-            >> queue = queue[:queue_size - 1]
+            queue = queue[:queue_size - 1]
             print(front_element)
             queue_size -= 1
             return
@@ -63,34 +63,18 @@ def solution():
     for count in range(repeat_count):
         order = sys.stdin.readline()
         if 'push' in order:
-            _, number = map(int, order.split())
-            queue = [number] + queue
-            queue_size += 1
-        elif 'pop' in order:
-            if queue_size:
-                front_element = queue[queue_size - 1]
-                queue = queue[:queue_size - 1]
-                print(front_element)
-                queue_size -= 1
-            else:
-                print('-1')
-        elif 'size' in order:
-            print(queue_size)
-        elif 'empty' in order:
-            if queue_size:
-                print('0')
-            else:
-                print('1')
-        elif 'front' in order:
-            if queue_size:
-                print(queue[queue_size - 1])
-            else:
-                print('-1')
-        elif 'back' in order:
-            if queue_size:
-                print(queue[0])
-            else:
-                print('-1')
+            _, number = order.split()
+            push(number)
+        if 'pop' in order:
+            pop()
+        if 'size' in order:
+            size()
+        if 'empty' in order:
+            empty()
+        if 'front' in order:
+            front()
+        if 'back' in order:
+            back()
 
     # debugging
     # 1. show input data
