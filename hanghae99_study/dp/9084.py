@@ -32,6 +32,10 @@ def solution():
                 if index >= coin:
                     dp[index] += dp[index - coin]
 
+        for coin in coin_list:
+            for index in range(coin, target_money + 1):
+                dp[index] += dp[index - coin]
+
         print(dp[target_money])
 
 

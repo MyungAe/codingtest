@@ -55,7 +55,7 @@ def solution():
         if depth_nodes:
             print(' '.join(depth_nodes))
 
-    # print(tree)
+    print(tree)
 
 
 solution()
